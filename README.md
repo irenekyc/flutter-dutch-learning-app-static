@@ -1,6 +1,18 @@
 # learn_dutch_app
 
-A new Flutter project.
+A Flutter Practise project written by Irene K.
+
+# Motivation
+
+I am recently moved to the Netherlands. I am a flutter developer newbie. This is a great project to practise both of my flutter developing skills and Dutch.
+
+# UI
+
+Basic UI
+
+# Data
+
+Static data
 
 ## Getting Started
 

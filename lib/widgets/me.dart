@@ -5,13 +5,8 @@ import 'package:learn_dutch_app/widgets/collection_details.dart';
 import '../model/collection.dart';
 
 class Me extends StatelessWidget {
-  List<Collection> _savedCollections = [
-    Collection(
-        id: 1, title: "Basic Greetings", iconSrc: FontAwesomeIcons.handshake),
-    Collection(
-        id: 5, title: "Transportation", iconSrc: FontAwesomeIcons.busAlt),
-    Collection(id: 3, title: "Food", iconSrc: FontAwesomeIcons.utensils)
-  ];
+  final _savedCollections = Collection.fetchSaved();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -51,7 +46,7 @@ class Me extends StatelessWidget {
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
             padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
-            children: List.generate(_savedCollections.length, (index) {
+            children: List.generate(3, (index) {
               return GestureDetector(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {

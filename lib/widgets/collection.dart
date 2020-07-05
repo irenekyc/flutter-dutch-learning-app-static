@@ -46,8 +46,12 @@ class Collections extends StatelessWidget {
                                             fontWeight: FontWeight.w500,
                                             fontSize: 18)),
                                   ),
-                                  Icon(Icons.favorite_border,
-                                      size: 24, color: primaryColor)
+                                  Icon(
+                                      collection.alreadyLiked
+                                          ? Icons.favorite
+                                          : Icons.favorite_border,
+                                      size: 24,
+                                      color: primaryColor)
                                 ]),
                           ),
                         ))

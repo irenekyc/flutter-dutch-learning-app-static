@@ -18,12 +18,23 @@ class Collection {
   Collection(
       {this.id, this.title, this.alreadyLiked, this.iconSrc, this.vocabList});
 
+  static List<Collection> fetchSaved() {
+    final collections = fetchAll();
+    List<Collection> saved = [];
+    for (var i = 0; i < collections.length; i++) {
+      if (collections[i].alreadyLiked == true) {
+        saved.add(collections[i]);
+      }
+    }
+    return saved;
+  }
+
   static List<Collection> fetchAll() {
     return [
       Collection(
           id: 1,
           title: "Basic Greetings",
-          alreadyLiked: false,
+          alreadyLiked: true,
           iconSrc: FontAwesomeIcons.handshake,
           vocabList: [
             Vocab(en: "Hello", dutch: "Hallo"),
@@ -51,7 +62,7 @@ class Collection {
       Collection(
           id: 3,
           title: "Food",
-          alreadyLiked: false,
+          alreadyLiked: true,
           iconSrc: FontAwesomeIcons.utensils,
           vocabList: [
             Vocab(en: "apple", dutch: "appel"),
@@ -82,7 +93,7 @@ class Collection {
       Collection(
           id: 5,
           title: "Transporations",
-          alreadyLiked: false,
+          alreadyLiked: true,
           iconSrc: FontAwesomeIcons.busAlt,
           vocabList: [
             Vocab(en: "bus", dutch: "bus"),
