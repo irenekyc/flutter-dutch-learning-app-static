@@ -44,14 +44,16 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: (index) {
               bottomTapped(index);
             }),
-        body: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() {
-              bottomSelectedIndex = index;
-            });
-          },
-          children: <Widget>[Body(), Collections(), Me()],
+        body: SafeArea(
+          child: PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() {
+                bottomSelectedIndex = index;
+              });
+            },
+            children: <Widget>[Body(), Collections(), Me()],
+          ),
         ));
   }
 

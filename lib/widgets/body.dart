@@ -7,7 +7,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
+    return Expanded(
         child: Padding(
             padding: EdgeInsets.symmetric(vertical: 70, horizontal: 20),
             child: Column(

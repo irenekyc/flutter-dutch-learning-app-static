@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_dutch_app/style.dart';
+import 'package:learn_dutch_app/widgets/collection_details.dart';
 import '../model/collection.dart';
 
 class Me extends StatelessWidget {
@@ -51,24 +52,31 @@ class Me extends StatelessWidget {
             mainAxisSpacing: 20,
             padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
             children: List.generate(_savedCollections.length, (index) {
-              return Container(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-                  height: 80,
-                  width: 120,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      FaIcon(_savedCollections[index].iconSrc,
-                          size: 50, color: primaryColor),
-                      Spacer(),
-                      Text(_savedCollections[index].title,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: primaryColor, fontSize: 20))
-                    ],
-                  ));
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return CollectionDetails(id: _savedCollections[index].id);
+                  }));
+                },
+                child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+                    height: 80,
+                    width: 120,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        FaIcon(_savedCollections[index].iconSrc,
+                            size: 50, color: primaryColor),
+                        Spacer(),
+                        Text(_savedCollections[index].title,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: primaryColor, fontSize: 16))
+                      ],
+                    )),
+              );
             })),
       )),
     ]));
